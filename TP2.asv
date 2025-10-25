@@ -140,10 +140,9 @@ for block = 1:num_block
     fprintf('\n');
 end
 
-Msg_without_padding = Msg_Deci(:).';
-Msg_without_padding(length(Msg_without_padding) - num_pad + 1: 64) = [];
+Msg_without_padding = Msg_Deci;
+Msg_without_padding(num_block, 16-num_pad : 16) = [];
 % Display ASCII form of recovered plaintext
 Msg_ascii = char(Msg_without_padding);
-% 
-% disp(Msg_ascii);
-fprintf("'%s'\n", Msg_ascii);  
+
+disp(Msg_ascii);
